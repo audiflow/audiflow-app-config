@@ -1,0 +1,30 @@
+name: validate
+
+on:
+  pull_request:
+    paths:
+      - "v1/**"
+      - "schema/**"
+      - "scripts/**"
+      - ".github/workflows/validate.yml"
+  push:
+    branches: [main]
+    paths:
+      - "v1/**"
+      - "schema/**"
+      - "scripts/**"
+      - ".github/workflows/validate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate schema + invariants
+        run: ./scripts/validate.sh

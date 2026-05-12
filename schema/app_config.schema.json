@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://audiflow.dev/schema/app_config.schema.json",
+  "title": "ForceUpdateConfig",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "minVersion",
+    "recommendedVersion",
+    "maintenanceMode",
+    "messageKey"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "minVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$"
+    },
+    "recommendedVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$"
+    },
+    "maintenanceMode": {
+      "type": "boolean"
+    },
+    "messageKey": {
+      "type": "string",
+      "minLength": 1
+    },
+    "messageOverride": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["en", "ja"],
+          "properties": {
+            "en": { "type": "string", "minLength": 1 },
+            "ja": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    },
+    "updateUrl": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^https?://" }
+      ]
+    }
+  }
+}
