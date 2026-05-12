@@ -1,4 +1,7 @@
-# Force-update config is a kill switch. Owner-only review required.
+# Force-update config is a kill switch. Maintainer-only review required.
+# Repo lives under the audiflow org; only @reedom publishes.
+# If a maintainers team is later added (e.g. @audiflow/app-config-maintainers),
+# replace @reedom below with the team handle.
 * @reedom
 /v1/ @reedom
 /schema/ @reedom
