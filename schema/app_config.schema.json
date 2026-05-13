@@ -5,33 +5,33 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "schema_version",
-    "min_version",
-    "recommended_version",
-    "maintenance_mode",
-    "message_key"
+    "schemaVersion",
+    "minVersion",
+    "recommendedVersion",
+    "maintenanceMode",
+    "messageKey"
   ],
   "properties": {
-    "schema_version": {
+    "schemaVersion": {
       "type": "integer",
       "minimum": 1
     },
-    "min_version": {
+    "minVersion": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$"
     },
-    "recommended_version": {
+    "recommendedVersion": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$"
     },
-    "maintenance_mode": {
+    "maintenanceMode": {
       "type": "boolean"
     },
-    "message_key": {
+    "messageKey": {
       "type": "string",
       "minLength": 1
     },
-    "message_override": {
+    "messageOverride": {
       "oneOf": [
         { "type": "null" },
         {
@@ -45,7 +45,7 @@
         }
       ]
     },
-    "update_url": {
+    "updateUrl": {
       "oneOf": [
         { "type": "null" },
         { "type": "string", "pattern": "^https?://" }
