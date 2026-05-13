@@ -20,7 +20,7 @@ npx --yes ajv-cli@5 validate \
   -d "v1/*.json" \
   --strict=true
 
-echo "==> Invariant: minVersion <= recommendedVersion"
+echo "==> Invariant: min_version <= recommended_version"
 node - <<'JS'
 const fs = require('node:fs');
 const path = require('node:path');
@@ -38,11 +38,11 @@ const files = fs.readdirSync('v1').filter((f) => f.endsWith('.json'));
 let failed = 0;
 for (const f of files) {
   const cfg = JSON.parse(fs.readFileSync(path.join('v1', f), 'utf8'));
-  if (0 < cmpSemver(cfg.minVersion, cfg.recommendedVersion)) {
-    console.error(`FAIL ${f}: minVersion ${cfg.minVersion} > recommendedVersion ${cfg.recommendedVersion}`);
+  if (0 < cmpSemver(cfg.min_version, cfg.recommended_version)) {
+    console.error(`FAIL ${f}: min_version ${cfg.min_version} > recommended_version ${cfg.recommended_version}`);
     failed++;
   } else {
-    console.log(`ok   ${f}: ${cfg.minVersion} <= ${cfg.recommendedVersion}`);
+    console.log(`ok   ${f}: ${cfg.min_version} <= ${cfg.recommended_version}`);
   }
 }
 process.exit(failed === 0 ? 0 : 1);
