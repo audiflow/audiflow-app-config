@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "minVersion": "2.0.1",
-  "recommendedVersion": "2.0.1",
+  "minVersion": "2.0.0",
+  "recommendedVersion": "2.0.0",
   "maintenanceMode": false,
   "messageKey": "default",
   "messageOverride": null,
